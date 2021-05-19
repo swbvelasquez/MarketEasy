@@ -25,7 +25,7 @@ public class ProductEntity {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(long productId) {
         this.productId = productId;
     }
 

@@ -26,19 +26,19 @@ public class ProductHandler extends Handler {
         try{
             switch (msg.what) {
                 case GETALL:
-                    Toast.makeText(activity.getApplicationContext(), "GET ALL" + (int)msg.obj, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity.getApplicationContext(), "GET ALL " + (int)msg.obj, Toast.LENGTH_SHORT).show();
                     break;
                 case GETBYID:
-                    Toast.makeText(activity.getApplicationContext(),"GET BY ID" + (int)msg.obj,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity.getApplicationContext(),"GET BY ID " + (int)msg.obj,Toast.LENGTH_SHORT).show();
                     break;
                 case INSERT:
-                    Toast.makeText(activity.getApplicationContext(),"INSERT" + (int)msg.obj,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity.getApplicationContext(),"INSERT " + (int)msg.obj,Toast.LENGTH_SHORT).show();
                     break;
                 case UPDATE:
-                    Toast.makeText(activity.getApplicationContext(),"UPDATE" + (int)msg.obj,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity.getApplicationContext(),"UPDATE " + (int)msg.obj,Toast.LENGTH_SHORT).show();
                     break;
                 case DELETE:
-                    Toast.makeText(activity.getApplicationContext(),"DELETE" + (int)msg.obj,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity.getApplicationContext(),"DELETE " + (int)msg.obj,Toast.LENGTH_SHORT).show();
                     break;
                 case THREAD_ERROR:
                     Exception ex = (Exception)msg.obj;

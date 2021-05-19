@@ -15,10 +15,10 @@ import java.util.List;
 
 @Dao
 public abstract class SaleOrderDAO {
-    @Query("select * from Product")
+    @Query("select * from SaleOrder")
     public abstract List<SaleOrderEntity> getAll();
 
-    @Query("select * from Product where productId=:id")
+    @Query("select * from SaleOrder where saleOrderId=:id")
     public abstract SaleOrderEntity getById(int id);
 
     @Insert

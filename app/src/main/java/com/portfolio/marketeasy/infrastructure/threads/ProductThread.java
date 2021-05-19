@@ -4,12 +4,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-import static com.portfolio.marketeasy.core.global.Constants.DELETE;
-import static com.portfolio.marketeasy.core.global.Constants.GETALL;
-import static com.portfolio.marketeasy.core.global.Constants.GETBYID;
-import static com.portfolio.marketeasy.core.global.Constants.INSERT;
-import static com.portfolio.marketeasy.core.global.Constants.THREAD_ERROR;
-import static com.portfolio.marketeasy.core.global.Constants.UPDATE;
+import static com.portfolio.marketeasy.core.global.Constants.*;
 
 public class ProductThread extends Thread{
 

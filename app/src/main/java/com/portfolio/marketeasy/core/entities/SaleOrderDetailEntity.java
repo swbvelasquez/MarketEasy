@@ -15,7 +15,6 @@ public class SaleOrderDetailEntity {
     private long productId;
     private int quantity;
     private double price;
-    private Date registerDate;
 
     public SaleOrderDetailEntity() {
     }
@@ -58,13 +57,5 @@ public class SaleOrderDetailEntity {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public Date getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(Date registerDate) {
-        this.registerDate = registerDate;
     }
 }
