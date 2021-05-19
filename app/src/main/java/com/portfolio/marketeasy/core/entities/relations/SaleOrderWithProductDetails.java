@@ -8,16 +8,17 @@ import com.portfolio.marketeasy.core.entities.SaleOrderEntity;
 
 import java.util.List;
 
-public class SaleOrderDetails {
+public class SaleOrderWithProductDetails {
     @Embedded
     private SaleOrderEntity saleOrder;
     @Relation(
             parentColumn = "saleOrderId",
-            entityColumn = "saleOrderId"
+            entityColumn = "saleOrderId",
+            entity = SaleOrderDetailEntity.class
     )
-    private List<SaleOrderDetailEntity> saleOrderDetailList;
+    private List<SaleOrderDetailAndProduct> detailAndProductList;
 
-    public SaleOrderDetails() {
+    public SaleOrderWithProductDetails() {
     }
 
     public SaleOrderEntity getSaleOrder() {
@@ -28,11 +29,11 @@ public class SaleOrderDetails {
         this.saleOrder = saleOrder;
     }
 
-    public List<SaleOrderDetailEntity> getSaleOrderDetailList() {
-        return saleOrderDetailList;
+    public List<SaleOrderDetailAndProduct> getDetailAndProductList() {
+        return detailAndProductList;
     }
 
-    public void setSaleOrderDetailList(List<SaleOrderDetailEntity> saleOrderDetailList) {
-        this.saleOrderDetailList = saleOrderDetailList;
+    public void setDetailAndProductList(List<SaleOrderDetailAndProduct> detailAndProductList) {
+        this.detailAndProductList = detailAndProductList;
     }
 }

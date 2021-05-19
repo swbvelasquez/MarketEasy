@@ -30,7 +30,7 @@ public class ProductThread extends Thread{
             Log.d(TAG, "run: working");
             Message message;
             try {
-                long result = 100;
+                int result = 100;
 
                 switch (requestCode) {
                     case GETALL:

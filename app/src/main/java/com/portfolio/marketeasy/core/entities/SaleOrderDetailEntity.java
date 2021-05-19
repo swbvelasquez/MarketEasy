@@ -2,6 +2,8 @@ package com.portfolio.marketeasy.core.entities;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.OnConflictStrategy;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
@@ -12,7 +14,6 @@ public class SaleOrderDetailEntity {
     @ColumnInfo(index = true)
     private long saleOrderDetailId;
     private long saleOrderId;
-    private long productId;
     private int quantity;
     private double price;
 
@@ -33,14 +34,6 @@ public class SaleOrderDetailEntity {
 
     public void setSaleOrderId(long saleOrderId) {
         this.saleOrderId = saleOrderId;
-    }
-
-    public long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(long productId) {
-        this.productId = productId;
     }
 
     public int getQuantity() {

@@ -9,7 +9,8 @@ import androidx.room.Update;
 
 import com.portfolio.marketeasy.core.entities.SaleOrderDetailEntity;
 import com.portfolio.marketeasy.core.entities.SaleOrderEntity;
-import com.portfolio.marketeasy.core.entities.relations.SaleOrderDetails;
+import com.portfolio.marketeasy.core.entities.relations.SaleOrderWithDetails;
+import com.portfolio.marketeasy.core.entities.relations.SaleOrderWithProductDetails;
 
 import java.util.List;
 
@@ -20,6 +21,14 @@ public abstract class SaleOrderDAO {
 
     @Query("select * from SaleOrder where saleOrderId=:id")
     public abstract SaleOrderEntity getById(int id);
+
+    @Transaction
+    @Query("select * from SaleOrder where saleOrderId=:id")
+    public abstract List<SaleOrderWithDetails> getAllSaleOrderWithDetails(int id);
+
+    @Transaction
+    @Query("select * from SaleOrder where saleOrderId=:id")
+    public abstract List<SaleOrderWithProductDetails> getAllSaleOrderWithProductDetails(int id);
 
     @Insert
     public abstract long insert(SaleOrderEntity entity);
@@ -37,17 +46,17 @@ public abstract class SaleOrderDAO {
     public abstract int delete(SaleOrderEntity entity);
 
     @Transaction
-    public long insertSaleOrderDetails(SaleOrderDetails saleOrderDetails){
+    public long insertSaleOrderDetails(SaleOrderWithDetails saleOrderWithDetails){
         long orderId;
         List<Long> detailsIdList;
 
-        orderId = insert(saleOrderDetails.getSaleOrder());
+        orderId = insert(saleOrderWithDetails.getSaleOrder());
 
-        for(SaleOrderDetailEntity detail : saleOrderDetails.getSaleOrderDetailList()){
+        for(SaleOrderDetailEntity detail : saleOrderWithDetails.getSaleOrderDetailList()){
             detail.setSaleOrderId(orderId);
         }
 
-        detailsIdList = insertDetailList(saleOrderDetails.getSaleOrderDetailList());
+        detailsIdList = insertDetailList(saleOrderWithDetails.getSaleOrderDetailList());
 
         return orderId;
     }

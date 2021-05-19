@@ -13,10 +13,11 @@ public class ProductEntity {
     @ColumnInfo(index = true)
     private long productId;
     private String name;
-    private String descripcion;
+    private String description;
     private int stock;
     private double price;
     private Date expirationDate;
+    private long saleOrderDetailId;
 
     public ProductEntity() {
     }
@@ -37,12 +38,12 @@ public class ProductEntity {
         this.name = name;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String descripcion) {
+        this.description = descripcion;
     }
 
     public int getStock() {
@@ -67,5 +68,13 @@ public class ProductEntity {
 
     public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public long getSaleOrderDetailId() {
+        return saleOrderDetailId;
+    }
+
+    public void setSaleOrderDetailId(long saleOrderDetailId) {
+        this.saleOrderDetailId = saleOrderDetailId;
     }
 }
