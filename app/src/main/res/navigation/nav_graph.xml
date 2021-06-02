@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.portfolio.marketeasy.ui.fragments.HomeFragment"
+        android:label="@string/home_title"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_catalogue"
+        android:name="com.portfolio.marketeasy.ui.fragments.CatalogueFragment"
+        android:label="@string/catalogue_title"
+        tools:layout="@layout/fragment_catalogue" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.portfolio.marketeasy.ui.fragments.ProfileFragment"
+        android:label="@string/profile_title"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

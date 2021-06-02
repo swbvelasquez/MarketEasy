@@ -26,4 +26,5 @@ public interface ProductDAO {
 
     @Delete
     int delete(ProductEntity entity);
+
 }
