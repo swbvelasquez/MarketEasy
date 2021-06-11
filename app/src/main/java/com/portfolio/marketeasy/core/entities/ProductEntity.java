@@ -13,11 +13,13 @@ public class ProductEntity {
     @ColumnInfo(index = true)
     private long productId;
     private String name;
+    private String brand;
     private String description;
     private int stock;
     private double price;
     private Date expirationDate;
     private long saleOrderDetailId;
+    private String urlImage;
 
     public ProductEntity() {
     }
@@ -36,6 +38,14 @@ public class ProductEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getDescription() {
@@ -76,5 +86,13 @@ public class ProductEntity {
 
     public void setSaleOrderDetailId(long saleOrderDetailId) {
         this.saleOrderDetailId = saleOrderDetailId;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 }

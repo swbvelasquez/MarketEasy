@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:stretchColumns="*"
+        >
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_view_product"
+                android:layout_width="0dp"
+                android:layout_weight="0.75"
+                android:layout_height="150dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_nav_header"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_view_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_blue_700"
+                    android:text="Redmi Note 8 PRO"/>
+
+                <TextView
+                    android:id="@+id/text_view_brand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/dark_blue_500"
+                    android:text="XIAOMI"/>
+
+                <TextView
+                    android:id="@+id/text_view_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:text="S/. 750.00"/>
+
+                <Button
+                    android:id="@+id/button_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add to Car"/>
+
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+
+
+
+
+</androidx.cardview.widget.CardView>

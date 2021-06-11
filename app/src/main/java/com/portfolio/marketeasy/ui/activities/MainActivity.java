@@ -57,14 +57,4 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
-
-    /*
-    try{
-            ProductHandler handler = new ProductHandler(getMainLooper(),this);
-            ProductThread thread = new ProductThread(handler,GETALL);
-            thread.start();
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
-     */
 }

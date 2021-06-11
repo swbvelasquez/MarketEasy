@@ -10,5 +10,6 @@ public class Constants {
     public static final int UPDATE=4;
     public static final int DELETE=5;
     public static final int THREAD_ERROR=999;
+    public static final int THREAD_REQUEST_NOT_FOUND=999999999;
 
 }

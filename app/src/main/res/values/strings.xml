@@ -5,6 +5,7 @@
     <string name="catalogue_title">Catalogue</string>
     <string name="profile_title">Profile</string>
     <string name="about_title">About</string>
+    <string name="cart_title">Cart</string>
 
     <string name="nav_header_description">Image</string>
     <string name="nav_header_title">Market Easy</string>

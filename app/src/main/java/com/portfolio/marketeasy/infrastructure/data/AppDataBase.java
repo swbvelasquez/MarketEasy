@@ -32,7 +32,7 @@ public abstract class AppDataBase extends RoomDatabase {
     public abstract SaleOrderDAO saleOrderDAO();
     public abstract ProductDAO productDAO();
 
-    public static AppDataBase getInstance(Context context){
+    public static synchronized AppDataBase getInstance(Context context){
         if(INSTANCE==null){
             INSTANCE = Room.databaseBuilder(context,AppDataBase.class, Constants.DB_NAME)
                             .fallbackToDestructiveMigration()

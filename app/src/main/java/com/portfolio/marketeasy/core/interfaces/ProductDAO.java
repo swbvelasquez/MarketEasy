@@ -1,5 +1,6 @@
 package com.portfolio.marketeasy.core.interfaces;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,6 +15,9 @@ import java.util.List;
 public interface ProductDAO {
     @Query("select * from Product")
     List<ProductEntity> getAll();
+
+    @Query("select * from Product")
+    LiveData<List<ProductEntity>> getAllLiveData();
 
     @Query("select * from Product where productId=:id")
     ProductEntity getById(int id);
