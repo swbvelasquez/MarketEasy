@@ -26,7 +26,7 @@ public class CatalogueViewModel extends AndroidViewModel {
 
     public void addProductToCar(ProductEntity entity){
         //do something in car
-        productRepository.insert(entity);
+        //productRepository.insert(entity);
     }
 
     public LiveData<Boolean> getProductTaskState(){

@@ -1,5 +1,6 @@
 package com.portfolio.marketeasy.core.interfaces;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -18,6 +19,9 @@ import java.util.List;
 public abstract class SaleOrderDAO {
     @Query("select * from SaleOrder")
     public abstract List<SaleOrderEntity> getAll();
+
+    @Query("select * from SaleOrder")
+    public abstract LiveData<List<SaleOrderEntity>> getAllLiveData();
 
     @Query("select * from SaleOrder where saleOrderId=:id")
     public abstract SaleOrderEntity getById(int id);
@@ -46,7 +50,7 @@ public abstract class SaleOrderDAO {
     public abstract int delete(SaleOrderEntity entity);
 
     @Transaction
-    public long insertSaleOrderDetails(SaleOrderWithDetails saleOrderWithDetails){
+    public long insertSaleOrderWithDetails(SaleOrderWithDetails saleOrderWithDetails){
         long orderId;
         List<Long> detailsIdList;
 
