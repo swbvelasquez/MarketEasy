@@ -1,22 +1,16 @@
 package com.portfolio.marketeasy.core.entities.relations;
 
 import androidx.room.Embedded;
-import androidx.room.Relation;
 
-import com.portfolio.marketeasy.core.entities.SaleOrderDetailEntity;
+import com.portfolio.marketeasy.core.entities.ProductEntity;
 import com.portfolio.marketeasy.core.entities.SaleOrderEntity;
-
-import java.util.List;
 
 public class SaleOrderWithProductDetails {
     @Embedded
     private SaleOrderEntity saleOrder;
-    @Relation(
-            parentColumn = "saleOrderId",
-            entityColumn = "saleOrderId",
-            entity = SaleOrderDetailEntity.class
-    )
-    private List<SaleOrderDetailAndProduct> detailAndProductList;
+    @Embedded
+    private ProductEntity productEntity;
+    private int quantity;
 
     public SaleOrderWithProductDetails() {
     }
@@ -29,11 +23,19 @@ public class SaleOrderWithProductDetails {
         this.saleOrder = saleOrder;
     }
 
-    public List<SaleOrderDetailAndProduct> getDetailAndProductList() {
-        return detailAndProductList;
+    public ProductEntity getProductEntity() {
+        return productEntity;
     }
 
-    public void setDetailAndProductList(List<SaleOrderDetailAndProduct> detailAndProductList) {
-        this.detailAndProductList = detailAndProductList;
+    public void setProductEntity(ProductEntity productEntity) {
+        this.productEntity = productEntity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

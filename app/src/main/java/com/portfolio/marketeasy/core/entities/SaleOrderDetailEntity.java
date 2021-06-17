@@ -1,31 +1,18 @@
 package com.portfolio.marketeasy.core.entities;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
-import androidx.room.OnConflictStrategy;
-import androidx.room.PrimaryKey;
 
-import java.util.Date;
-
-@Entity(tableName = "SaleOrderDetail")
-public class SaleOrderDetailEntity {
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(index = true)
-    private long saleOrderDetailId;
+@Entity(
+        tableName = "SaleOrderDetail",
+        primaryKeys = {"saleOrderId","productId"}
+)
+public class SaleOrderDetailEntity { //cross reference
     private long saleOrderId;
+    private long productId;
     private int quantity;
     private double price;
 
     public SaleOrderDetailEntity() {
-    }
-
-    public long getSaleOrderDetailId() {
-        return saleOrderDetailId;
-    }
-
-    public void setSaleOrderDetailId(long saleOrderDetailId) {
-        this.saleOrderDetailId = saleOrderDetailId;
     }
 
     public long getSaleOrderId() {
@@ -34,6 +21,14 @@ public class SaleOrderDetailEntity {
 
     public void setSaleOrderId(long saleOrderId) {
         this.saleOrderId = saleOrderId;
+    }
+
+    public long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
 
     public int getQuantity() {

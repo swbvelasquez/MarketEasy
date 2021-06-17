@@ -24,7 +24,6 @@ public class ProductDiffUtilCallBack extends DiffUtil.ItemCallback<ProductEntity
                 && oldItem.getPrice() == newItem.getPrice()
                 && oldItem.getStock() == newItem.getStock()
                 && oldItem.getExpirationDate().equals(newItem.getExpirationDate())
-                && oldItem.getSaleOrderDetailId() == newItem.getSaleOrderDetailId()
                 && oldItem.getUrlImage().equals(newItem.getUrlImage());
     }
 

@@ -18,7 +18,6 @@ public class ProductEntity {
     private int stock;
     private double price;
     private Date expirationDate;
-    private long saleOrderDetailId;
     private String urlImage;
 
     public ProductEntity() {
@@ -52,8 +51,8 @@ public class ProductEntity {
         return description;
     }
 
-    public void setDescription(String descripcion) {
-        this.description = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getStock() {
@@ -78,14 +77,6 @@ public class ProductEntity {
 
     public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
-    }
-
-    public long getSaleOrderDetailId() {
-        return saleOrderDetailId;
-    }
-
-    public void setSaleOrderDetailId(long saleOrderDetailId) {
-        this.saleOrderDetailId = saleOrderDetailId;
     }
 
     public String getUrlImage() {

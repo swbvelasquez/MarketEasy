@@ -18,9 +18,9 @@ import java.util.List;
 public class CatalogueRecyclerAdapter extends RecyclerView.Adapter<CatalogueRecyclerAdapter.CatalogueViewHolder> {
 
     private List<ProductEntity> productList;
-    private OnClickListener<ProductEntity> listener;
+    private OnClickListener<ProductEntity> onClickListener;
 
-    protected CatalogueRecyclerAdapter() {
+    public CatalogueRecyclerAdapter() {
         productList=new ArrayList<>();
     }
 
@@ -32,12 +32,12 @@ public class CatalogueRecyclerAdapter extends RecyclerView.Adapter<CatalogueRecy
         this.productList = productList;
     }
 
-    public OnClickListener<ProductEntity> getListener() {
-        return listener;
+    public OnClickListener<ProductEntity> getOnClickListener() {
+        return onClickListener;
     }
 
-    public void setListener(OnClickListener<ProductEntity> listener) {
-        this.listener = listener;
+    public void setOnClickListener(OnClickListener<ProductEntity> onClickListener) {
+        this.onClickListener = onClickListener;
     }
 
     @NonNull
@@ -78,7 +78,7 @@ public class CatalogueRecyclerAdapter extends RecyclerView.Adapter<CatalogueRecy
 
         @Override
         public void onClick(View v) {
-            listener.onClick(productList.get(getAdapterPosition()));
+            onClickListener.onClick(productList.get(getAdapterPosition()));
         }
     }
 }

@@ -1,24 +1,26 @@
 package com.portfolio.marketeasy.core.entities.relations;
 
 import androidx.room.Embedded;
+import androidx.room.Junction;
 import androidx.room.Relation;
 
+import com.portfolio.marketeasy.core.entities.ProductEntity;
 import com.portfolio.marketeasy.core.entities.SaleOrderDetailEntity;
 import com.portfolio.marketeasy.core.entities.SaleOrderEntity;
 
 import java.util.List;
 
-public class SaleOrderWithDetails {
+public class SaleOrderWithProducts {
     @Embedded
     private SaleOrderEntity saleOrder;
     @Relation(
             parentColumn = "saleOrderId",
-            entityColumn = "saleOrderId",
-            entity = SaleOrderDetailEntity.class
+            entityColumn = "productId",
+            associateBy = @Junction(SaleOrderDetailEntity.class) //cross ref many to many
     )
-    private List<SaleOrderDetailEntity> saleOrderDetailList;
+    private List<ProductEntity> saleOrderProductList;
 
-    public SaleOrderWithDetails() {
+    public SaleOrderWithProducts() {
     }
 
     public SaleOrderEntity getSaleOrder() {
@@ -29,11 +31,11 @@ public class SaleOrderWithDetails {
         this.saleOrder = saleOrder;
     }
 
-    public List<SaleOrderDetailEntity> getSaleOrderDetailList() {
-        return saleOrderDetailList;
+    public List<ProductEntity> getSaleOrderProductList() {
+        return saleOrderProductList;
     }
 
-    public void setSaleOrderDetailList(List<SaleOrderDetailEntity> saleOrderDetailList) {
-        this.saleOrderDetailList = saleOrderDetailList;
+    public void setSaleOrderProductList(List<ProductEntity> saleOrderProductList) {
+        this.saleOrderProductList = saleOrderProductList;
     }
 }

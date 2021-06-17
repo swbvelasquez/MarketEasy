@@ -7,8 +7,11 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        // for data binding:
+        //dataBinding true
+        
+        viewBinding true
     }
 
     defaultConfig {
