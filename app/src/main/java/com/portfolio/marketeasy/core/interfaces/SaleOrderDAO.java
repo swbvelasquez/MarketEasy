@@ -85,6 +85,7 @@ public abstract class SaleOrderDAO {
                 saleOrderDetail.setSaleOrderId(orderId);
                 saleOrderDetail.setQuantity(1);
                 saleOrderDetail.setPrice(product.getPrice());
+                saleOrderDetailList.add(saleOrderDetail);
             }
 
             detailsIdList = insertDetailList(saleOrderDetailList);

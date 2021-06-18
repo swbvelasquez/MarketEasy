@@ -53,26 +53,42 @@ public class CatalogueFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentCatalogueBinding.inflate(inflater,container,false);
 
-        //Configurar el recycler
+        try {
+            configurateRecyclerView();
+            configurateViewModel();
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+        return binding.getRoot();
+    }
+
+    private void configurateRecyclerView(){
+        //Configurar el adapter
         catalogueRecyclerAdapter = new CatalogueRecyclerAdapter();
         catalogueRecyclerAdapter.setOnClickListener(new OnClickListener<ProductEntity>() {
             @Override
             public void onClick(ProductEntity entity) {
-                catalogueViewModel.addProductToCar(entity,idOrder);
+                catalogueViewModel.addProductToCar(entity, idOrder);
             }
         });
 
+        //Configurar el recycler
         binding.recyclerProducts.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.recyclerProducts.setHasFixedSize(true);
         binding.recyclerProducts.setAdapter(catalogueRecyclerAdapter);
+    }
 
+    private void configurateViewModel(){
         //Configurar los observers
         catalogueViewModel = new ViewModelProvider(this).get(CatalogueViewModel.class);
 
+        //Observar metodos de view model relacionados a transacciones
         catalogueViewModel.getAllProducts().observe(getViewLifecycleOwner(), new Observer<List<ProductEntity>>() {
             @Override
             public void onChanged(List<ProductEntity> productEntities) {
                 //update recycler
+                catalogueRecyclerAdapter.setProductList(productEntities);
             }
         });
 
@@ -80,9 +96,9 @@ public class CatalogueFragment extends Fragment {
             @Override
             public void onChanged(Boolean aBoolean) {
                 //show or hide progress bar
-                if(aBoolean) {
+                if (aBoolean) {
                     Toast.makeText(getActivity(), "Processing Order Thread", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "Terminated Order Thread", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -91,12 +107,12 @@ public class CatalogueFragment extends Fragment {
         catalogueViewModel.getSaleOrderTaskMessage().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                if(s!=null && !s.equals("")) {
+                if (s != null && !s.equals("")) {
                     int requestCode = Integer.parseInt(s.split("-")[0]);
                     int resultProcess = Integer.parseInt(s.split("-")[1]);
                     int result = Integer.parseInt(s.split("-")[2]);
                     String message = s.split("-")[3];
-                    if(resultProcess==1) {
+                    if (resultProcess == 1) {
                         if (requestCode == 100) { // insert order with products first time
                             idOrder = result;
                             Log.d("onSOMessage", "onChanged: Order Register With Id " + idOrder);
@@ -110,7 +126,5 @@ public class CatalogueFragment extends Fragment {
                 }
             }
         });
-
-        return binding.getRoot();
     }
 }

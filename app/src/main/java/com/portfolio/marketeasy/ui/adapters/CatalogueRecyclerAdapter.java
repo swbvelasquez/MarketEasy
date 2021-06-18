@@ -30,6 +30,7 @@ public class CatalogueRecyclerAdapter extends RecyclerView.Adapter<CatalogueRecy
 
     public void setProductList(List<ProductEntity> productList) {
         this.productList = productList;
+        notifyDataSetChanged();
     }
 
     public OnClickListener<ProductEntity> getOnClickListener() {
@@ -78,7 +79,9 @@ public class CatalogueRecyclerAdapter extends RecyclerView.Adapter<CatalogueRecy
 
         @Override
         public void onClick(View v) {
-            onClickListener.onClick(productList.get(getAdapterPosition()));
+            if(getAdapterPosition()!=RecyclerView.NO_POSITION && onClickListener!=null) {
+                onClickListener.onClick(productList.get(getAdapterPosition()));
+            }
         }
     }
 }
